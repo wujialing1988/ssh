@@ -14,7 +14,11 @@
 	良好！
 	<#else>
 	一般！	
-	</#if>
+	</#if><br>
+	（3）、list页面遍历！<br>
+	<#list lst as dizhi >
+	<b>${dizhi.country}</b> <br/>
+	</#list>
 
 </body>
 </html>

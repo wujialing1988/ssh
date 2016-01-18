@@ -6,7 +6,7 @@
 
 	<!-- 测试 -->
 	<package name="test" extends="st" namespace="/test">
-		<action name="*" class="com.xx.FreeMarkerTest" method="{1}">
+		<action name="*" class="com.xx.action.FreeMarkerTestAction" method="{1}">
 			<result name="success" type="freemarker">/WEB-INF/pages/template/{1}.ftl</result>
 		</action>
 	</package>
