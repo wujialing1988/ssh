@@ -23,4 +23,5 @@
        		<result name="success">/WEB-INF/pages/index.jsp</result>
         </action>
     </package>
+    <include file="struts_business.xml"></include>
 </struts>
