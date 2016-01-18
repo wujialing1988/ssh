@@ -1,4 +1,7 @@
-package com.xx;
+package com.xx.action;
+
+import java.util.Map;
+import java.util.Random;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -8,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * 
  * @author wujialing
  */
-public class FreeMarkerTest extends ActionSupport {
+public class FreeMarkerTestAction extends ActionSupport {
 
 	/**
 	 * 序列号
@@ -21,7 +24,9 @@ public class FreeMarkerTest extends ActionSupport {
 	 * @return
 	 */
 	public String test(){
-		ActionContext.getContext().getSession().put("user", "何东");
+		Map<String, Object> map = ActionContext.getContext().getSession();
+		map.put("user", "何东");
+		map.put("random", new Random().nextInt(100));
 		return "success";
 	}
 
