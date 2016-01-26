@@ -1,0 +1,30 @@
+/*!
+ * Ext JS Library 3.2.0
+ * Copyright(c) 2006-2010 Ext JS, Inc.
+ * licensing@extjs.com
+ * http://www.extjs.com/license
+ */
+#msg-div {
+    position: absolute;
+    float:right;
+    bottom:1000px;
+    width:200px;
+    z-index:20000;
+    overflow-x: visible;
+}
+#msg-div1 {
+    position: absolute;
+    float:right;
+    bottom:1000px;
+    width:250px;
+    z-index:20000;
+    overflow: visible;
+}
+
+.msg .x-box-mc {
+    font-size: 12px;
+    height:40px;
+    padding-top: 10px;
+    background-color: rgb(238, 238, 238);
+    overflow:auto;
+}

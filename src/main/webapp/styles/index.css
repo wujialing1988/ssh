@@ -1,0 +1,207 @@
+body {
+	font-size: 12px;
+	margin: 0px auto;
+	font-family: Verdana, Geneva, sans-serif, "锟斤拷锟斤拷";
+	_line-height: 150%; +
+	letter-spacing: 0px;
+	color: #333;
+	background: #fff;
+	line-height: 20px;
+}
+
+BODY HTML {
+	height: 100%;
+	width: 100%;
+	filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+	-webkit-filter: grayscale(100%);
+	overflow: hidden !important;
+}
+
+.overflow_hidden {
+	overflow: hidden;
+	*overflow: hidden;
+}
+a {
+	-moz-outline-style: none;
+}
+
+a:link {
+	color: #333;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #333;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #FF8000;
+	text-decoration: none;
+}
+
+.bg_blue {
+	background: #E9F0F8
+}
+
+.FontStyle {
+	font-weight: bold;
+	font-size: 13px;
+	color: #14418B;
+}
+.FontStyle_1 {
+	font-size: 13px;
+	color: #14418B;
+} 
+.color_red {
+	color: #F00;
+} 
+.color_blue {
+	color: #0000FF !important;
+}
+.color_gray {
+	color: #999
+} 
+.color_green {
+	color: #0C3
+}
+.font_link {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.keep_right {
+	float: right
+} 
+.keep_left {
+	float: left
+} 
+.clear {
+	clear: both;
+}
+
+html,body {
+	height: 100%;
+}
+
+.callIfrme {
+	overflow: hidden;
+	background-color: transparent;
+	border: none;
+}
+
+input,textarea {
+	font-size: 12px;
+	padding: 1px;
+}
+
+.information_btn {
+	background: url(../images/information.png) no-repeat;
+	width: 30px;
+	height: 25px;
+	position: fixed;
+	z-index: 1;
+	bottom: 2px;
+	right: 2px;
+	border: 0;
+	cursor: pointer;
+}
+
+input[type="text"] {
+	border: 1px solid #999;
+}
+
+input[class="red"] {
+	border: 1px solid red;
+}
+
+input[class="gray"] {
+	color: #999
+}
+
+input[type="text"]:hover {
+	background: #FDF5DF
+}
+
+textarea {
+	border: 1px solid #999;
+}
+
+textarea:hover {
+	background: #FDF5DF
+}
+
+select {
+	border: 1px solid #999;
+}
+
+select:hover {
+	background: #FDF5DF
+}
+
+.left_scroll { 
+	height: 100%;
+	width: 205px;
+	overflow: auto;
+	overflow-x: hidden;
+	scrollbar-face-color: #C6D7FF;
+	scrollbar-3dlight-color: #B5CBF7;
+	scrollbar-darkshadow-color: #B5CBF7;
+	scrollbar-base-color: #B5CBF7;
+	scrollbar-shadow-color: #FFF;
+	scrollbar-highlight-color: #FFF;
+	scrollbar-track-color: #FFF;
+	scrollbar-arrow-color: #4A6184;
+}
+
+.btn_margin {
+	margin: 0 5px;
+} 
+label {
+	vertical-align: middle
+}
+
+input {
+	vertical-align: middle;
+}
+/*为解决extjs自身问题引入的css*/
+.x-grid-td{vertical-align:middle!important;}/*grid合并行时候在td中居中的补充*/
+.x-list-plain{list-style-type:none;margin:0;padding:0;white-space:nowrap!important;}/*修正ie11下提交验证提示数字和文字串行的BUG*/
+.x-tip-body-default{white-space:nowrap!important;}/*修正ie11下 移动到列表单元格漂浮框数字和文字串行BUG*/
+ .x-tree-node-text {
+	line-height: 14px;!important;
+	padding-top: 3px;
+}
+
+ .x-column-header-text {
+	line-height: 16px;!important;
+}
+.x-form-display-field{
+	word-break:break-all;
+	word-wrap:break-word;
+}
+
+.x-form-layout-table {
+	table-layout: fixed;
+}
+
+/*gird无数据时候的样式*/
+.gridNoimg_1{ 
+position: absolute;
+top: 50%; 
+left: 50%;
+height: 100px; 
+margin-top: -50px; 
+width: 300px; 
+margin-left: -150px;
+background:url(../images/frame/no_img1.jpg) no-repeat;}
+.gridNoimg_2 {
+color:#090 !important;
+position: absolute;
+top: 50%; 
+left: 50%;
+height: 80px; 
+margin-top: -40px; 
+width: 400px; 
+margin-left: -200px;
+background:url(../images/frame/no_img2.jpg) no-repeat;}

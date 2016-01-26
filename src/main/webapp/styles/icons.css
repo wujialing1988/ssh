@@ -1,0 +1,26 @@
+.dateTime-icon{background: url("../images/icons/datePicker.gif") no-repeat right #FFF !important;
+vertical-align:middle; line-height:18px;}/*日期控件*/
+.selectGrid-icon{background: url("../images/icons/selectGrid.png") no-repeat right #FFF !important;
+vertical-align:middle; line-height:18px;}/* 封装控件弹出 */
+.null-button{ display:none;}/* 封装操作列，不显示图标时使用 */
+
+.add-button {background: url(../images/icons/add.gif) left top no-repeat !important;}/* 添加，录入 */
+.delete-button {background: url(../images/icons/delete.gif) left top no-repeat !important;}/* 删除 */
+.download-button {background: url(../images/icons/download.gif) left top no-repeat !important;}/* 下载*/
+.detail-button{background: url(../images/icons/detail.gif) left top no-repeat !important;}/* 详情，明细*/
+.edit-button{background: url(../images/icons/edit.gif) left top no-repeat !important;}/* 修改，编辑 ，更改*/
+.excel-button{background: url(../images/icons/excel.gif) left top no-repeat !important;}/*导出excel*/
+.export-button {background: url(../images/icons/emp.png) left top no-repeat !important;}/* 导出 */
+.flowpath-button {background: url(../images/icons/flowpath.png) left top no-repeat !important;}/* 流程轨迹 */
+.import-button {background: url(../images/icons/imp.png) left top no-repeat !important;}/* 导入 */
+.icon-collapse-all {background-image: url(../images/icons/collapse-all.gif) !important;}/*折叠全部*/
+.icon-expand-all {background-image: url(../images/icons/expand-all.gif) !important;}/*展开全部*/
+.icon-sendReview{background-image: url(../images/icons/sendReview.gif);}/* 查看 -流程模块*/
+.icon-view{background-image: url(../images/icons/view.gif);}/* 分配资源-角色模块 */		
+.query-button{ background: url(../images/icons/magnifier.png) left top no-repeat!important;  }/* 查询，查看 */
+.revoke-button{ background: url(../images/icons/revoke.gif) left top no-repeat!important;  }/* 撤销，撤回 */
+.release-button{ background: url(../images/icons/release.gif) left top no-repeat!important;  }/* 发起，发布 */
+.resetPwd {background: url(../images/icons/resetPwd.gif) left top no-repeat !important;}/* 密码重置 */
+.refresh-button{background: url(../images/icons/refresh.gif) left top no-repeat !important;}/*同步，刷新*/
+.search-button {background: url(../images/icons/search.gif) left top no-repeat!important;}/* 搜索，查询 */
+/*流程模块需要修改的部分addCanAnalysisEvent.png，preview.png，reset.gif，sendReview.gif，view.gif*/

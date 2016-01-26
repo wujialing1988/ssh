@@ -1,0 +1,23 @@
+
+.add_file {
+	background-image: url(../images/icons/add_file.gif) !important;
+}
+
+.delete_file {
+	background-image: url(../images/icons/delete_file.gif) !important;
+}
+
+.up_file {
+	background-image: url(../images/icons/up_file.gif) !important;
+}
+
+.trash_file {
+	background-image: url(../images/icons/trash_file.gif) !important;
+}
+
+.cancel_file {
+	background-image: url(../images/icons/cancel_file.gif) !important;
+}
+.complete_file {
+	background-image: url(../images/icons/complete_file.png) !important;
+}

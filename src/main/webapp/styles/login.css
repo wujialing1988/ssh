@@ -1,0 +1,119 @@
+.login2 {
+	background: #FFF;
+}
+
+.login2_bg {
+	background: #FFF url(../images/login/login2_bg.jpg) no-repeat;
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	height: 350px;
+	width: 930px;
+	z-index: 1;
+	margin-left: -460px;
+}
+
+.login_2 {
+	width: 340px;
+	height: 80px;
+	line-height: 30px;
+	position: absolute;
+	top: 60px;
+	left: 400px;
+}
+
+.login1_title {
+	color: #227EB1;
+	font-family: "Arial", "Î¢ÈíÑÅºÚ", "ËÎÌå";
+	font-size: 24px;
+	position: absolute;
+	width: 300px;
+	height: 30px;
+	top: 80px;
+	left: 20px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.login1_title .span_SUB {
+	font-size: 18px;
+	font-weight: normal;
+	letter-spacing: normal;
+}
+
+.login2_title {
+	color: #227EB1;
+	font-family: "Arial", "Î¢ÈíÑÅºÚ", "ËÎÌå";
+	font-size: 24px;
+	position: absolute;
+	width: 400px;
+	height: 40px;
+	top: 10px;
+	left: 400px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.login2_title .span_SUB {
+	font-size: 18px;
+	font-weight: normal;
+	letter-spacing: normal;
+}
+
+.login_2 .login2_text {
+	border: 1px solid #999999;
+	background: #fff;
+	width: 200px;
+	height: 20px;
+	padding-left: 5px;
+	color: #666
+}
+
+.login_2 .onfocus_login2_text {
+	border: 1px solid #999999;
+	background: #FDF5DF;
+	width: 200px;
+	height: 20px;
+	padding-left: 5px;
+	color: #666
+}
+
+.login_2 .login2_text2 {
+	border: 1px solid #999999;
+	background: #fff;
+	width: 60px;
+	height: 20px;
+	padding-left: 5px;
+	color: #666
+}
+
+.login_2 .onfocus_login2_text2 {
+	border: 1px solid #999999;
+	background: #FDF5DF;
+	width: 60px;
+	height: 20px;
+	padding-left: 5px;
+	color: #666
+}
+
+.login2 .button_2 {
+	background: url(../images/login/login2_btn.png) no-repeat;
+	height: 56px;
+	width: 56px;
+	border: 0;
+	cursor: pointer;
+}
+
+.login2 .button_2:hover {
+	background: url(../images/login/login2_btn.png) no-repeat 0 -56px;
+	height: 56px;
+	width: 56px;
+	border: 0;
+	cursor: pointer;
+}
+
+.checkbox_input {
+	vertical-align: middle;
+	margin-top: 0;
+	padding: 2px;
+}

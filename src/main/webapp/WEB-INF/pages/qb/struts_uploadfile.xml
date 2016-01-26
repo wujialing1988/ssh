@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="uploadfile" extends="st" namespace="/uploadfile">
+
+		<action name="*" class="com.dqgb.jxgl.assess.action.FileUpLoadAction" method="{1}"></action>
+				
+		<action name="getAttachListByGroupId" class="com.dqgb.jxgl.assess.action.FileUpLoadAction" method="getAttachListByGroupId">
+			<result name="success" type="json">
+			<param name="includeProperties" >
+		attachList\.\w+,
+		attachList\[\d+\]\.\w+,
+		attachList\[\d+\]\.attachGroup\.pkAttachGroupId
+		</param>
+		<param name="noCache">true</param>
+		</result>
+  	</action>
+		
+	</package>
+</struts>
