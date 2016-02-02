@@ -10,15 +10,4 @@
 			<result name="success" type="freemarker">/WEB-INF/pages/template/{1}.ftl</result>
 		</action>
 	</package>
-	
-	<!-- 附件上传 -->
-	<package name="attach" extends="st" namespace="/attach">
-		<action name="toAttach" class="com.xx.action.AttachAction" method="toAttach">
-			<result name="success">/WEB-INF/pages/attach/attach.jsp</result>
-		</action>
-		<action name="*" class="com.xx.action.AttachAction" method="{1}">
-		</action>
-	</package>
-	
-	
 </struts>
