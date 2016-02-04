@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link rel="stylesheet" type="text/css"  href="../../styles/icons.css" />
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+ <script type="text/javascript" src="RoleGrid.js"></script>
+<meta charset="UTF-8">
+<title>表格-数据格式</title>
+</head>
+<body>
+<h1>数据格式</h1>
+<h2>扩展类：Ext.data.proxy.Ajax</h2>
+<h2>扩展方式：<a href="../right.html">extend</a></h2>
+<h2>类名：Ext.ux.data.proxy.Format</h2>
+<h2>别名：Ext.data.proxy.format</h2>
+<h2>简介：</h2>
+<P>规范前台和后台的数据交互，统一数据格式，简化前台页面切换不同后台服务器时的适配工作。</P>
+<h2>扩展功能：</h2>
+
+    <p>1.后台查询（read）,采用post方式，避免中文乱码。</p>
+    <p>2.设置数据解析器，用于解析后台返回的JSON数据。分页数据返回格式请参考<a href="#releListData">示例后台返回数据。</a></p>
+ 	<p>3.添加请求异常监听函数，对网络错误、服务器错误等进行统一处理。</p>
+ 	
+ <h3>分页查询数据格式：</h3>
+  <pre class="code">
+{
+	"success":true,
+	"list": [{
+			"roleCode": "XMJL",
+			"description": "项目经理"
+		},{
+			"roleCode": "ZJL",
+			"description": "总经理"
+		}
+	],
+	"totalSize": 4
+}
+ </pre>
+  <h3>查询记录详细数据格式：</h3>
+  <pre class="code">
+{
+	"success":true,
+	"data": {
+			"roleCode": "XMJL",
+			"description": "项目经理"
+	}
+}
+ </pre>
+   <h3>添加、修改、删除数据格式：</h3>
+  <pre class="code">
+// 操作成功时返回：
+{
+	"success":true,
+	"msg": ''
+}
+
+// 操作失败时返回：
+{
+	"success":false,
+	"msg": '添加用户失败，用户名已存在。'
+}
+ </pre>
+ <h3>java后台数据格式封装源码：</h3>
+<p><a id="releListData" href="ResponseVo.java" target="_blank">ResponseVo.java</a></p>
+ <h2>示例：</h2>
+<div id="grid-example"></div>
+<p>示例源码：<a href="RoleGrid.js" target="_blank">查看</a></p>
+<p>示例后台返回数据：<a id="releListData" href="roleListData.json" target="_blank">查看</a></p>
+
+  <h2>用法：</h2>
+ <p>引入控件JS文件,在store的proxy定义中设置
+<span style="color:red;">type : format</span></p>
+ <pre class="code">
+&lt;script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"&gt;&lt;/script&gt;
+/**
+ * 定义Store
+ */
+sshframe.role.RoleStore = Ext.create('Ext.data.Store', {
+	model : 'sshframe.role.roleModel',
+	proxy : {
+		type : "format", // 自定义的数据代理类型,注意，这里使用的别名。
+		url : "roleListData.json"
+	},
+	autoLoad:true
+})
+ </pre>
+</body>
+</html>

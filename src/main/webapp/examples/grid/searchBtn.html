@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+
+
+<meta charset="UTF-8">
+<title>表格-查询按钮根据查询条件隐藏相应列</title>
+</head>
+<body>
+<h1>查询按钮根据查询条件隐藏相应列</h1>
+<h2>扩展类：Ext.Button</h2>
+<h2>扩展方式：<a href="../right.html">extend</a></h2>
+<h2>扩展功能：</h2>
+
+    <p>1.根据每条记录中某个或者多个数据的值去判断列的显示或者隐藏。</p>
+    <p>2.不需要在查询按钮中加点击事件就能自动查询。</p>
+
+<h2>用法：</h2>
+ <p>引入控件JS文件</p>
+   <pre class="code">&lt;script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"&gt;&lt;/script&gt;</pre>
+ <h3>参数表：</h3>
+    <table class="tab_1" cellspacing="1">
+      <tr>
+        <td class="title">dataIndex</td>
+        <td><span class='color_red'>关联隐藏列的field值，不在查询按钮中配置</span></td>
+        <td>需要隐藏的列的dataIndex值，可以是dataIndex:'a&b',表示字段a和字段b的列都隐藏</td>
+      </tr>
+      <tr>
+        <td class="title">itemId</td>
+        <td><span class='color_red'>关联的查询条件中需要配置是参数，不在查询按钮中配置</span></td>
+        <td>通过对查询按钮所在tbar中所有查询条件控件遍历itemId作为参数，控件的值作为参数的值，查询数据，比如itemId : 'keyString',那么keyString作为查询参数</td>
+      </tr>
+    </table>
+     
+ <h2>示例：</h2>
+<div id="searchBtnGrid-example"></div>
+<p>示例源码：<a href="searchBtnGrid.js" target="_blank">查看</a></p>
+
+<p>参考代码如下： </p>
+ <pre class="code">
+ tbar : ['设备名称', {
+		xtype : 'textfield',
+		itemId : 'deviceName',
+		dataIndex : 'deviceCode&deviceName',
+		width : 90
+	}, '关键字', {
+		xtype : 'textfield',
+		itemId : 'keyString',
+		width : 90
+	}, {
+		xtype : 'searchBtn', //查询按钮
+	}
+]
+ </pre>
+</body>
+<link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/common/SystemConstant.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+ <script type="text/javascript" src="searchBtnGrid.js"></script>
+</html>

@@ -1,7 +1,7 @@
 body {
 	font-size: 12px;
 	margin: 0px auto;
-	font-family: Verdana, Geneva, sans-serif, "锟斤拷锟斤拷";
+	font-family: Verdana, Geneva, sans-serif, "宋体";
 	_line-height: 150%; +
 	letter-spacing: 0px;
 	color: #333;
@@ -165,9 +165,9 @@ input {
 	vertical-align: middle;
 }
 /*为解决extjs自身问题引入的css*/
-.x-grid-td{vertical-align:middle!important;}/*grid合并行时候在td中居中的补充*/
-.x-list-plain{list-style-type:none;margin:0;padding:0;white-space:nowrap!important;}/*修正ie11下提交验证提示数字和文字串行的BUG*/
-.x-tip-body-default{white-space:nowrap!important;}/*修正ie11下 移动到列表单元格漂浮框数字和文字串行BUG*/
+/*.x-grid-td{vertical-align:middle!important;}grid合并行时候在td中居中的补充*/
+/*.x-list-plain{list-style-type:none;margin:0;padding:0;white-space:nowrap!important;}修正ie11下提交验证提示数字和文字串行的BUG*/
+/*.x-tip-body-default{white-space:nowrap!important;}修正ie11下 移动到列表单元格漂浮框数字和文字串行BUG*/
  .x-tree-node-text {
 	line-height: 14px;!important;
 	padding-top: 3px;

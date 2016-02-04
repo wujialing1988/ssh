@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+ <script type="text/javascript" src="RoleWin.js"></script>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<h1>表格面板</h1>
+<h2>扩展类：Ext.grid.Panel</h2>
+<h2>扩展方式：override</h2>
+<h2>扩展功能：</h2>
+    <p>1.移除之前的属性（每个输入框都要有'beforeLabelTextTpl: required'才能出现<font  color="red" >*</font>）。</p>
+    <p>2.该输入框只要有'allowBlank'属性，即可出现<font  color="red" >*</font>。</p>
+<h2>示例：</h2>
+<br/>
+<div id="welcome"></div>
+<p>示例效果说明：</p>
+<p>1.如果输入框是必填项，则只需增加'allowBlank : false'属性即可。</p>
+<p>
+	{
+		fieldLabel : 'IP地址',
+		name : 'roleName',
+		vtype:'IPAddress',
+		allowBlank : false
+	}
+</p>
+<h2>用法：</h2>
+<p>直接引用控件代码即可，不需额外编写代码。</p>
+<pre class="code">
+&lt;script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"&gt;&lt;/script&gt;
+ </pre>
+
+</body>
+</html>

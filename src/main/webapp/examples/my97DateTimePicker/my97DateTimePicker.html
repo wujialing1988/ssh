@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/common/SystemConstant.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/common/my97DatePicker/WdatePicker.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+ <script type="text/javascript" src="my97DateTimePicker.js"></script>
+<meta charset="UTF-8">
+<title>My97日期控件</title>
+</head>
+<body>
+<h1>My97日期控件</h1>
+<h2>扩展类：Ext.form.field.Text</h2>
+<h2>扩展方式：<a href="../right.html">extend</a></h2>
+<h2>类名：Ext.form.field.My97DateTimePicker</h2>
+<h2>xtype：dateTimePicker</h2>
+<h2>简介：</h2>
+<P>My97日期控件是在原生的my97的基础上进行了封装简化和扩展的一个组件，将原有的复杂配置简化，并根据常用的业务需求对时间限制做了调整</P>
+<h2>扩展功能：</h2>
+    <p>1.设置为必填项后会把当前时间设置默认时间。</p>
+    <p>2.支持id和时间格式参数来限制最大最小时间</p>
+    <p>3.可以配置选择时间后的回调函数</p>
+ <h2>用法：</h2>
+ <p>引入控件JS文件</p>
+   <pre class="code">&lt;script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"&gt;&lt;/script&gt;</pre>
+   <pre class="code">&lt;script type="text/javascript" src="../../scripts/common/my97DatePicker/WdatePicker.js"&gt;&lt;/script&gt;</pre>
+ <h3>参数表：</h3>
+   <table width="200" class="tab_1" cellspacing="1">
+      <tr>
+        <td class="title">dateFmt</td>
+        <td>默认：yyyy-MM-dd</td>
+        <td>用于定义日期时间的格式，如yyyy-MM-dd HH:mm:ss，表示年月日时分秒</td>
+      </tr>
+      <tr>
+        <td class="title">maxDate</td>
+        <td>默认：2099-12-31 23:59:59</td>
+        <td>不得大于（晚于）控件的id，或者不得大于的时间范围如maxDate:'2016-01-11'&nbsp;&nbsp;<span class="color_red">注意：</span>考虑到减少参数项，所以再定义id关联控制限制条件这种方式的时候，不能使用纯数字作为id名称，比如配置一个关联控件的id:'123_1'</td>
+      </tr>
+      <tr>
+        <td class="title">minDate</td>
+        <td>默认：1900-01-01 00:00:00</td>
+        <td>不得小于（早于）控件的id，或者不得小于的时间范围如minDate:'2016-01-11'&nbsp;&nbsp;<span class="color_red">注意：</span>同maxDate</td>
+      </tr>
+      <tr>
+        <td class="title">changedCallback</td>
+        <td></td>
+        <td>当选择时间完成之后，触发的一个方法，如changedCallback:alertCallback，选择完成之后触发一个alertCallback的方法</td>
+      </tr>
+    </table>
+<h2>示例1：根据id限制最大和最小时间</h2>
+	<div id="my97DateTimePicker-example1"></div>
+	<h3>示例说明：</h3>
+	<p>示例源码：<a href="my97DateTimePicker.js" target="_blank">查看</a></p>
+	<p>具体属性设置请参考以下代码</p>
+	<pre class="code">
+	   {
+			fieldLabel : '开始时间',
+			xtype : "dateTimePicker",
+			dateFmt : 'yyyy-MM-dd HH:mm:ss',//时间格式
+			id:'purchaseDate',//id
+			maxDate:'startRunDate'//不得大于（晚于）控件的id
+	   }
+	   {
+			fieldLabel : '结束时间',
+			xtype : "dateTimePicker",
+			dateFmt : 'yyyy-MM-dd HH:mm:ss',
+			id:'startRunDate',
+			minDate:'purchaseDate'//不得小于（早于）控件的id
+	   }
+	</pre>
+	
+<h2>示例2：根据时间条件限制最大和最小时间</h2>
+	<div id="my97DateTimePicker-example2"></div>
+	<h3>示例说明：</h3>
+	<p>示例源码：<a href="my97DateTimePicker.js" target="_blank">查看</a></p>
+	<p>具体属性设置请参考以下代码</p>
+	<pre class="code">
+	    {
+			fieldLabel : '不早于时间',
+			xtype : "dateTimePicker",
+			dateFmt : 'yyyy-MM-dd',
+			maxDate : '2016-01-11'//不得大于（晚于）2016-01-11
+		}
+		{
+			fieldLabel : '不晚于时间',
+			xtype : "dateTimePicker",
+			dateFmt : 'yyyy-MM-dd HH:mm:ss',
+			minDate : '2016-01-11'//不得小于（早于）2016-01-11
+		}
+		{
+			fieldLabel : '同时满足',
+			xtype : "dateTimePicker",
+			dateFmt : 'yyyy-MM-dd HH:mm:ss',
+			minDate : '2016-01-11',//不得小于（早于）2016-01-11
+			maxDate : '2016-01-22'//并且不得大于（晚于）2016-01-22
+		}
+	</pre>
+	
+<h2>示例3：选择日期后回调</h2>
+	<div id="my97DateTimePicker-example3"></div>
+	<h3>示例说明：</h3>
+	<p>示例源码：<a href="my97DateTimePicker.js" target="_blank">查看</a></p>
+	<p>具体属性设置请参考以下代码</p>
+	<pre class="code">
+	    {
+			fieldLabel : '选择后回调',
+			xtype : "dateTimePicker",
+			dateFmt : 'yyyy-MM-dd',
+			allowBlank : false,//设备必填项，默认当前时间
+			changedCallback:alertCallback//回调函数方法alertCallback
+		}
+	</pre>
+	
+<h2>示例4：各种时间日期选择</h2>
+	<div id="my97DateTimePicker-example4"></div>
+	<h3>示例说明：</h3>
+	<p>示例源码：<a href="my97DateTimePicker.js" target="_blank">查看</a></p>
+	<p>具体属性设置请参考以下代码</p>
+	<pre class="code">
+	    {
+			fieldLabel : '年',
+			xtype : "dateTimePicker",
+			dateFmt : 'yyyy年'
+		} {
+			fieldLabel : '年月日',
+			xtype : "dateTimePicker",
+			dateFmt : 'yyyy-MM-dd'
+		} {
+			fieldLabel : '月',
+			xtype : "dateTimePicker",
+			dateFmt : 'M月'
+		} {
+			fieldLabel : '年月日时分秒',
+			xtype : "dateTimePicker",
+			dateFmt : 'yyyy-MM-dd HH:mm:ss'
+		} {
+			fieldLabel : '年月',
+			xtype : "dateTimePicker",
+			dateFmt : 'yyyy年MM月'
+		} {
+			fieldLabel : '时分秒',
+			xtype : "dateTimePicker",
+			dateFmt : 'HH:mm:ss'
+		}
+		    
+	</pre>
+</body>
+</html>

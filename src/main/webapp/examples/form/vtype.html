@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+ <script type="text/javascript" src="RoleWinVTypes.js"></script>
+   <script type="text/javascript" src="../../scripts/extjs/ux/ExtJsExtendVTypes.js"></script>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<h1>表单校验</h1>
+<h2>扩展类：Ext.form.field.VTypes</h2>
+<h2>扩展方式：override</h2>
+<h2>扩展功能：</h2>
+    <p>1.定义了多种不同的表单的校验规则。</p>
+<h2>示例：</h2>
+<br/>
+<div id="vtypesDiv"></div>
+<h2>用法：</h2>
+<p>1.在vtype上增加对应的属性即可</p>
+<pre class="code">
+&lt;script type="text/javascript" src="../../scripts/extjs/ux/ExtJsExtendVTypes.js"&gt;&lt;/script&gt;
+	//参考示例
+	fieldLabel : 'IP地址',
+	name : 'roleName',
+	vtype:'IPAddress',//自定义的校验规则
+	allowBlank : false
+	
+	/**
+	*以下是为vtype定义的校验规则
+	*/
+	// 验证IP地址是否合法 IPAddress
+	Ext.apply(Ext.form.field.VTypes, {
+		IPAddress : function(v) {
+			return /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(v);
+		},
+		IPAddressText : '该输入项必须是IP地址，格式如："61.139.6.69"',
+		IPAddressMask : /[\d\.]/i
+	});
+	
+	//验证邮箱地址是否合法 emailAddress
+	Ext.apply(Ext.form.field.VTypes, {
+		emailAddress : function(v) {
+			return /^(\w+)([\-+.][\w]+)*@(\w[\-\w]*\.){1,5}([A-Za-z]){2,6}$/.test(v);
+		},
+		emailAddressText : '该输入项必须是邮箱地址，格式如："user@example.com"',
+		emailAddressMask : /[a-z0-9_\.\-@\+]/i
+	});
+	
+	//验证URL地址是否合法 URLAddress
+	Ext.apply(Ext.form.field.VTypes, {
+		URLAddress : function(v) {
+			return /^(\w+)([\-+.][\w]+)*@(\w[\-\w]*\.){1,5}([A-Za-z]){2,6}$/.test(v);
+		},
+		URLAddressText : '该输入项必须是URL地址，格式如："http://www.example.com"',
+		URLAddressMask : /[a-z0-9_\.\-@\+]/i
+	});
+	
+	//验证手机号码是否合法 phoneNumber
+	Ext.apply(Ext.form.field.VTypes, {
+		phoneNumber : function(v) {
+			return /^[1][0-9]{10}$/.test(v);
+		},
+		phoneNumberText : '该输入项必须是手机号码，格式如："13987654321"'
+	});
+	
+	//验证邮政编码是否合法 zipCodeAddress
+	Ext.apply(Ext.form.field.VTypes, {
+		zipCodeAddress : function(v) {
+			return /^[1-9]\d{5}(?!\d)$/.test(v);
+		},
+		zipCodeAddressText : '该输入项必须是邮政编码，格式如："100000"'
+	});
+	
+	//验证登录账号是否合法 account
+	Ext.apply(Ext.form.field.VTypes, {
+		account : function(v) {
+			return /^[\w.\-\u4e00-\u9fa5]*$/.test(v);
+		},
+		accountText : '该输入项禁止输入空格、特殊字符。'
+	});
+	
+	//验证身份证号码是否合法 IDCard
+	Ext.apply(Ext.form.field.VTypes, {
+		IDCard : function(v) {
+			return /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(v);
+		},
+		IDCardText : '该输入项只能输入15位或18位正确的身份证号码。'
+	});
+	
+	//过滤空格的验证方法  filterHtml
+	Ext.apply(Ext.form.field.VTypes, {
+		filterHtml : function(v) {
+			return /^([^ ^<^>])*$/.test(v);
+		},
+		filterHtmlText : '该输入项禁止输入空格,<,>。'
+	});
+ </pre>
+</body>
+</html>

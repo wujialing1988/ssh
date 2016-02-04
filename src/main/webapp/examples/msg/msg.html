@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/TipsWindow.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+ <script type="text/javascript" src="../../scripts/common/SystemConstant.js"></script>
+ <script type="text/javascript">
+ 	function showTip(){
+ 		Ext.Msg.showTip(SystemConstant.addSuccess);
+ 	}
+
+ </script>
+<meta charset="UTF-8">
+<title>消息提示</title>
+</head>
+<body>
+<h1>消息提示</h1>
+<h2>扩展类：Ext.Msg</h2>
+<h2>扩展方式：<a href="../right.html">override</a></h2>
+<h2>扩展功能：</h2>
+<p>1.扩展成功消息、警告消息和错误提示消息。</p>
+ <h2>示例：</h2>
+<div>
+<button name="成功消息"  onclick="showTip()">成功消息(3秒后自动关闭)</button>
+<button name="警告消息"  onclick="Ext.Msg.showWarning('用户session已过期，请重新登录。')">警告消息</button>
+<button name="错误消息" onclick="Ext.Msg.showError('网络异常！')">错误消息</button>
+</div>
+
+<p>示例源码：</p>
+
+  <h2>用法：</h2>
+ <p>引入控件消息JS文件</p>
+   <pre class="code">
+&lt;script type="text/javascript" src="../../scripts/extjs/ux/TipWindow.js"&gt;&lt;/script&gt;
+ </pre>
+ <p>调用Ext.Msg对象的方法</p>
+  <pre class="code">
+Ext.Msg.showTip(SystemConstant.addSuccess); // SystemConstant.addSuccess="添加成功";
+Ext.Msg.showWarning('用户session已过期，请重新登录。');
+Ext.Msg.showError('网络异常！')
+ </pre>
+  <p>消息常量代码片段</p>
+  <pre class="code">
+SystemConstant = {
+    delSuccess:"删除成功",
+    addSuccess:"添加成功",
+    editSuccess:"修改成功"
+}
+ </pre>
+</body>
+</html>

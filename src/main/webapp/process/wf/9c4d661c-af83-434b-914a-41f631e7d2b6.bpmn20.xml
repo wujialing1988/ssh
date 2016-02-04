@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="ttt" name="www" activiti:bpmType="1012">
+    <endEvent id="node1" name="结束"/>
+    <startEvent id="node4" name="开始"/>
+    <userTask id="node5" name="审核" activiti:user="jg_admin" activiti:roleIds="" activiti:formUrl="scs" activiti:taskType="bpm_approve">
+      <extensionElements>
+        <activiti:taskListener event="create" expression="${taskAssignHandler.createTaskListener(task)}"/>
+        <activiti:taskListener event="assignment" expression="${taskAssignHandler.assignTaskListener(task)}"/>
+        <activiti:taskListener event="complete" expression="${taskAssignHandler.completeTaskListener(task)}"/>
+        <activiti:executionListener expression="${taskAssignHandler.executionStart(execution)}" event="start"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow2" name="" sourceRef="node5" targetRef="node1"/>
+    <sequenceFlow id="flow3" name="" sourceRef="node4" targetRef="node5"/>
+  </process>  
+  <bpmndi:BPMNDiagram id="BPMNDiagram_ttt">
+    <bpmndi:BPMNPlane bpmnElement="ttt" id="BPMNPlane_ttt">
+      <bpmndi:BPMNShape bpmnElement="node1" id="BPMNShape_node1">
+        <omgdc:Bounds height="60" width="100" x="422" y="60"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="node4" id="BPMNShape_node4">
+        <omgdc:Bounds height="60" width="100" x="103" y="55"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="node5" id="BPMNShape_node5">
+        <omgdc:Bounds height="60" width="100" x="256" y="68"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="306" y="98"/>
+        <omgdi:waypoint x="472" y="90"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="153" y="85"/>
+        <omgdi:waypoint x="306" y="98"/>
+      </bpmndi:BPMNEdge> 
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

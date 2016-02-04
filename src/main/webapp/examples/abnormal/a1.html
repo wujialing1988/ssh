@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/common/SystemConstant.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+<meta charset="UTF-8">
+<title>右侧嵌入式iframe空白加载</title>
+</head>
+<body>
+<h1>右侧嵌入式iframe空白加载</h1>
+<h2>异常描述：</h2>
+<P>在网络较慢，加载数据量很大，或者后台反应较慢的情况之下，嵌入式的iframe会出现加载空白的现象</P>
+<h2>原始代码</h2>
+<pre class="code">
+Ext.create("Ext.container.Viewport", {
+	layout : "border",
+	items : [eam.examples.main.MainTree, {
+			region : "center",
+			border : false,
+			html : "&lt;iframe id='myGrid' src='1.html' width='100%' height='100%' frameborder='0' scrolling='auto' name='center'></iframe>"
+		}
+	]
+});
+</pre>
+<h2>处理方法：</h2>
+<P>用exrjs4.2版本及以上的使用Ext.ux.IFrame，它的xtpye:'uxiframe'</P>
+<pre class="code">
+Ext.create("Ext.container.Viewport", {
+	layout : "border",
+	items : [eam.examples.main.MainTree, {
+			region : "center",
+			xtype : 'uxiframe',
+			border : false,
+			id : 'mainFrame'
+		}
+	]
+});
+</pre>
+<P>默认加载页面时代码：</P>
+<pre class="code">
+initIframe = function (src) {
+	var frame = Ext.getCmp("mainFrame");
+	if (frame) {
+		frame.load(src);
+	}
+};
+</pre>
+<P>处理后效果：页面在加载过程中会自动出现加载进度效果</P>
+<img src='a1_1.bmp'/>
+</body>
+</html>

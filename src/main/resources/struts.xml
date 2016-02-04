@@ -10,18 +10,43 @@
     <constant name="struts.action.extension" value="action,do" />
 	<package name="st" extends="struts-default,json-default" namespace="/">
 		<interceptors>
+			<interceptor name="MethodInterceptor" class="com.dqgb.sshframe.common.interceptor.MethodInterceptor"></interceptor>
+			<interceptor name="ErrorInterceptor" class="com.dqgb.sshframe.common.interceptor.ErrorInterceptor"></interceptor>
 			<interceptor-stack name="globalStack">
-				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="MethodInterceptor"></interceptor-ref>
+				<interceptor-ref name="ErrorInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="globalStack"></default-interceptor-ref>
+		
 		<action name="toLogin">
-       		<result name="success">/WEB-INF/pages/login.jsp</result>
+		    <interceptor-ref name="defaultStack"></interceptor-ref>
+       		<result name="success">/WEB-INF/pages/main/login.jsp</result>
         </action>
         
-        <action name="toIndex">
-       		<result name="success">/WEB-INF/pages/index.jsp</result>
+         <action name="toFrameIndex">
+       		<result name="success">/WEB-INF/pages/main/index.jsp</result>
+        </action>
+        <action name="toCenter">
+       		<result name="success">/WEB-INF/pages/main/center.jsp</result>
+        </action>
+        <action name="toTop">
+       		<result name="success">/WEB-INF/pages/main/top.jsp</result>
+        </action>
+        <action name="toBottom">
+       		<result name="success">/WEB-INF/pages/main/bottom.jsp</result>
         </action>
     </package>
-    <include file="struts_business.xml"></include>
+<include file="struts_config/struts_user.xml"></include>
+<include file="struts_config/struts_dict.xml"></include>
+<include file="struts_config/struts_role.xml"></include>
+<include file="struts_config/struts_bpm.xml"></include>
+<include file="struts_config/struts_resource.xml"></include>
+<include file="struts_config/struts_org.xml"></include>
+<include file="struts_config/struts_log.xml"></include> 
+<include file="struts_config/struts_workturns.xml"></include> 
+<include file="struts_config/struts_attach.xml"></include> 
+<include file="struts_config/struts_attach_demo.xml"></include>
+<include file="struts_config/struts_examples.xml"></include>
 </struts>

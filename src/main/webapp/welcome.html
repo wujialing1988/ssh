@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>欢迎使用SSH框架1.1！</title>
+    <link href="" rel="SHORTCUT ICON" />
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  <div>
+    <h1 align="center">欢迎使用SSH框架1.6-大庆金桥</h1>
+	</div>
+  <p>本框架采用struts2+spring+hibernate集成，多采用注解形式配置，免去了xml文件的繁琐配置。</p>
+  <p>1.0版本初步整合了三大框架，提供了框架的基本功能，较复杂内容如流程控制、权限控制等待以后版本补充和完善。</p>
+  <p>项目采用svn进行版本控制，maven进行项目管理，pom.xml提供了项目的构建，打包以及部署的脚本，只需调用对应mvn命令即可完场相关操作，可以大大提高开发效率。</p>
+  <p>项目的结构如下图所示：</p>
+  <table width="790" border="1">
+  	<tr>
+  		<td width="329"><img src="imagesSshframe/src.jpg" width="329" height="413"></td>
+  		
+  		<td width="445"><p>左侧为java代码结构，包目录为com.dqgb.项目名.xx</p>
+		<p>下一级分别为action包，common常用类包，dao持久层包，entity实体类包，service业务类包，util为公用工具类包，vo为数据传输对象包。</p>
+		<p>各层按照模块再分包，每个模块值完成对应模块的功能，各个模块直接相互独立。</p></td>
+	  </tr>
+  	<tr>
+  		
+  		<td><img src="imagesSshframe/res.jpg" width="335" height="164"></td>
+  		<td>resources文件夹内存放的是项目的配置文件，包括数据库连接，spring、struts和hibernate的基础配置文件以及log4j日志配置文件，编译后在classes文件夹下。</td>
+	  </tr>
+  	<tr>
+  		<td><img src="imagesSshframe/web.jpg" width="339" height="376"></td>
+  		<td><p>webapp目录下为提供给客户端显示的内容，common目录中为公用的jsp文件，只要是js和css的导入以及meta的设置。</p>
+		<p>css文件夹中为项目中用到的css文件。</p>
+		<p>images目录中包含项目使用的图片和图标。</p>
+		<p>js目录中包含extjs文件夹和其他js文件。</p>
+		<p>web-inf文件夹对客户端是不可见的，其存放的是编译后的class文件和jar文件，其中pages包含所有的页面文件。</p>
+		<p>web.xml是项目启动配置，其中配置了spring、struts启动servlet，过滤器、监听器等。</p>
+		<p>&nbsp;</p></td>
+	  </tr>
+  </table>
+  </body>
+</html>

@@ -252,6 +252,8 @@ Ext.define("Ext.form.action.ActionOverride",{
 	 * 
 	 */
 Ext.override(Ext.form.field.Base, { // 针对form中的基本组件
+	width:90,
+	validateOnChange:false,
 	initComponent : function () {
 		if (this.allowBlank !== undefined && !this.allowBlank) {
 			if (this.fieldLabel) {
@@ -262,6 +264,7 @@ Ext.override(Ext.form.field.Base, { // 针对form中的基本组件
 	}
 });
 Ext.override(Ext.container.Container, { // 针对form中的容器组件
+	validateOnChange:false,
 	initComponent : function () {
 		if (this.allowBlank !== undefined && !this.allowBlank) {
 			if (this.fieldLabel) {

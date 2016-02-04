@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/common/SystemConstant.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+<meta charset="UTF-8">
+<title>IE下飘浮提示数字符号断行</title>
+</head>
+<body>
+<h1>IE下飘浮提示数字符号断行</h1>
+<h2>异常描述：</h2>
+<P>在IE8下和IE11下或者使用混乱模式下的留了浏览器，有数字和符号同时存在飘浮窗口(gird单元格提示飘浮，form表单验证飘浮)会出现断行的情况</P>
+<img src='a2_1.bmp'/>
+<img src='a2_2.png'/>
+</pre>
+<h2>处理方法1：</h2>
+<P>针对这各飘浮提示增加强制不换行：可能会引起别的异常，因为有些提示太多了的话是需要换行的</P>
+<pre class="code">
+在主css中加入
+.x-list-plain{white-space:nowrap!important;}/*form表单验证飘浮*/
+.x-tip-body-default{white-space:nowrap!important;}/*grid单元格提示飘浮*/
+</pre>
+<P>可能会的异常</P>
+<img src='a2_3.bmp'/>
+
+<h2>处理方法2：</h2>
+<P>转义所有的符号如2016-01-20 09:10:20<br/>转义后</P>
+<img src='a2_4.bmp'/>
+<P>处理后效果：</P>
+<img src='a2_5.bmp'/>
+</body>
+</html>

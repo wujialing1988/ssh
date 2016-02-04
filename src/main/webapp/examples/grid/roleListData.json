@@ -1,0 +1,23 @@
+{
+	"success":true,
+	"list": 
+	[{
+			"description": "项目经理",
+			"roleCode": "XMJL",
+			"roleName": "项目经理"
+		},{
+			"description": "总经理",
+			"roleCode": "ZJL",
+			"roleName": "总经理"
+		},{
+			"description": "部门经理",
+			"roleCode": "BMJL",
+			"roleName": "部门经理"
+		},{
+			"description": "administrator",
+			"roleCode": "admin",
+			"roleName": "管理员"
+		}
+	],
+	"totalSize": 4
+}

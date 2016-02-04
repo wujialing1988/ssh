@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<h1>提交进度条</h1>
+<h2>扩展类：Ext.form.action.ActionOverride</h2>
+<h2>扩展方式：override</h2>
+<h2>扩展功能：</h2>
+    <p>1.删除了在提交方法的时候创建进度条和关闭进度条的代码。</p>
+<h2>用法：</h2>
+<p>1.直接引入JS文件即可，这样在提交后台表单的时候，就会自动弹出“正在提交...”的进度条。</p>
+<pre class="code">
+&lt;script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"&gt;&lt;/script&gt;
+	//源代码
+	Ext.define("Ext.form.action.ActionOverride",{
+	    override : 'Ext.form.action.Action',
+	    waitTitle : '请等待...',
+	    waitMsg : '正在提交...'
+	});
+</pre>
+</body>
+</html>

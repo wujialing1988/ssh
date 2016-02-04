@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link rel="stylesheet" type="text/css" href="../../styles/icons.css" />
+ <link href="../../scripts/swfupload/UploadPanel.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/common/SystemConstant.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/TipsWindow.js"></script>
+ <script type="text/javascript" src="../../scripts/swfupload/swfupload.js"></script>
+ <script type="text/javascript" src="../../scripts/swfupload/UploadPanel.js"></script>
+ <script type="text/javascript" src="attachGridDemo.js"></script>
+<meta charset="UTF-8">
+<title>附件组多附件上传</title>
+</head>
+<body>
+<h1>附件组</h1>
+<h2>扩展类：Ext.grid.Panel</h2>
+<h2>扩展方式：<a href="../right.html">extend</a></h2>
+<h2>类名：Ext.grid.UploadPanel</h2>
+<h2>简介：</h2>
+<P>附件组是多个附件的集合。业务数据只需关联一个附件组ID,就可以对多个附件进行管理。附件组功能实现了将系统中的所有附件进行统一管理。
+附件组控件扩展EXTJS表格控件，实现附件列表显示、添加/批量添加、无刷新删除/删除全部和批量下载附件的功能。同时实现过虑文件大小、文件类型、最多上文件数和设置保存目录功能</P>
+<h2>扩展功能：</h2>
+
+    <p>1.实现显示附件列表、添加附件、删除附件、下载附件、打包批量下载功能。</p>
+    <p>2.实现验证文件大小、文件类型、最多上文件数和设置保存目录功能。保存目录支持使用日期格式。比如按当前年月来保存文件。</p>
+ <h2>示例：</h2>
+ <div>附件组ID: 
+ <select  id="attachGroupId" style="width:100px;">
+ <option value="" selected="selected"></option>
+ </select>
+ <input type="button"  value="加载" id="loadButton"> 附件组ID选择0时，添加附件后系统会创建新的附件组ID，并存放到附件ID下拉列表中。
+ (业务表只与附件组ID关联，一个附件组下可以包含多个附件。)
+ </div>
+ <br>
+<div id="attach-grid-example-multi"></div>
+<h3>示例说明：</h3>
+ <p>1 本示例结合JAVA架构后台实现文件保存。</p>
+ <p>2 本示例实现了多个附件组 切换 的效果，设置附件组ID的值为0。点击“加载”按钮，然后再上传附件，即可创建新的附件组ID.</p>
+<p>示例源码：<a href="attachGridDemo.js" target="_blank">查看</a></p>
+<p>示例后台返回数据格式：<a href="attachListData.json" target="_blank">查看</a></p>
+
+  <h2>用法：</h2>
+ <p>引入控件JS文件</p>
+   <pre class="code">
+&lt;script type="text/javascript" src="../../scripts/swfupload/swfupload.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="../../scripts/swfupload/UploadPanel.js"&gt;&lt;/script&gt;
+ </pre>
+ <p>具体属性设置请参考以下代码。注意，EXT表格(Ext.grid.Panel)的属性可以同时使用，比如设置表格的高度和宽度等。</p>
+  
+  <pre class="code">
+  	Ext.onReady(function() {
+	
+	var attachPanel = Ext.create('Ext.grid.UploadPanel',{
+		renderTo: 'attach-grid-example',
+		addFileBtnText : '选择文件',
+		uploadBtnText : '上传',
+		removeBtnText : '移除所有',
+		cancelBtnText : '取消上传',
+		file_post_name:'uploadAttach',
+		file_size_limit : 100,//MB
+		file_types:'*.*',//限制格式 如“txt;doc,docx”，用英文分号隔开
+		upload_url : basePath+'/attach/addAttach.action',
+		attachGroupId:'',
+		onUploadSuccess:function(newAttachGroupId){
+			var groupIdDom = Ext.get('attachGroupId');
+			//如果下拉选择框中无返回的 附件组ID: newAttachGroupId,则添加到下拉框。
+			if(!groupIdDom.child('option[value="'+newAttachGroupId+'"]')){
+				groupIdDom.createChild({
+					tag : 'option',
+					value : newAttachGroupId,
+					selected:"selected",
+					html:newAttachGroupId
+				});
+				Ext.Msg.showInfo("新附件组 ID为： "+newAttachGroupId);
+			}
+		}
+	});
+	
+	/**
+	 * 设置"加载"按钮点击事件。重新选择附件组ID下的全部附件。
+	 */
+	Ext.get('loadButton').on('click',function(event,target){
+		var groupId = Ext.get('attachGroupId').getValue();
+		//为附件组表格设置新的附件组ID,并刷新列表。
+		attachPanel.setAttachGroupId(groupId);
+	});
+})
+  </pre>
+ <p><span style="color:red;">注意：</span></p>
+ <p>1 文件大小限制在后台也有设置，同时struts2也有默认的最大上传文件限制的属性。比如在struts.xml文件中设置的常量：&lt;constant name="struts.multipart.maxSize" value="300000000"/&gt;</p>
+ <p>2 如果使用java架构作为默认使用的后台程序，可以在配置文件application.properties中设置系统文件的默认保存路径：attach.file.savePath=C:\\uploadFile\\$date{yyyy}\\$date{MM}</p>
+</body>
+</html>

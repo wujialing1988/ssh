@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+ <script type="text/javascript" src="RoleGrid.js"></script>
+<meta charset="UTF-8">
+<title>表格-按钮禁用</title>
+</head>
+<body>
+<h1>按钮禁用</h1>
+<h2>扩展类：Ext.selection.CheckboxModel</h2>
+<h2>扩展方式：<a href="../right.html">override</a></h2>
+<h2>扩展功能：</h2>
+    <p>1.选择框列默认显示在第二列。</p>
+    <p>2.根据选择的记录数据的记录条数和内容，实现禁用修改、删除等按钮功能</p>
+ 
+ <h2>示例：</h2>
+<div id="grid-example"></div>
+<p>示例效果说明：</p>
+<p>1.不能修改或删除"管理员"角色。</p>
+ 
+<p>示例源码：<a href="RoleGrid.js" target="_blank">查看</a></p>
+<p>示例后台返回数据：<a href="roleListData.json" target="_blank">查看</a></p>
+ 
+ <h2>用法：</h2>
+ <p>引入控件JS文件</p>
+   <pre class="code">
+&lt;script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"&gt;&lt;/script&gt;
+ </pre>
+ <p>扩展功能1，不需额外编写代码。</p>
+ <p>扩展功能2：</p>
+ <p>在"修改"按钮的定义配置里添加属性 "禁用表达式"
+ 	<br/> <span style="color:red;">disabledExpr : "$selectedRows != 1 || $roleCode=='admin'"</span>
+ 	<br/>$selectedRows 表示当前选择的行数， $roleCode表示选择角色记录(record) 的 roleCode 属性。
+ 	<br/>所以，表达式的含义为：选择的记录数不等于1 或者 选中的记录中包含角色编码为 'admin' 的记录时，禁用"修改"按钮。
+ </p>
+<p>参考代码如下： </p>
+ <pre class="code">
+{
+	xtype : 'button',
+	text : '修改',
+	disabledExpr : "$selectedRows != 1 || $roleCode=='admin'",
+	disabled : true
+}, {
+	xtype : 'button',
+	text : '删除',
+	disabledExpr : "$selectedRows == 0  || $roleCode=='admin'",
+	disabled : true
+}
+ </pre>
+ 
+ <p>原始写法对照： 需要定义每个按钮的id，且在一个页面中存在多个selModel时不能复用</p>
+ <pre class="contrast">
+  <img src="checkboxModel_1.png"/>
+ </pre>
+ 
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+	success: true,
+	"msg":"查询成功！",
+	"data": {
+			"mainDetail.id": "1",
+			"orgName": "生产一部",
+			"equipmentName": "常减压装置",
+			"functionName": "主楼6楼12号房间001",
+			"elementName":"单元位置1",
+			"elementTime":"2016-01-15"
+		}
+}

@@ -1,0 +1,62 @@
+{children:[{
+				text: "故障记录",
+				value: "1",
+				leaf: true,
+				href: "1.html",
+				hrefTarget: "center"
+			}, {
+				text: "故障记录关闭",
+				value: "2",
+				leaf: true,
+				href: "9.html",
+				hrefTarget: "center"
+			}, {
+				text: "故障台账",
+				value: "3",
+				leaf: true,
+				href: "2.html",
+				hrefTarget: "center"
+			}, {
+				text: "设备故障统计分析",
+				value: "3",
+				leaf: true,
+				href: "3.html",
+				hrefTarget: "center"
+			}, {
+				text: "故障知识库",
+				value: "4",
+				leaf: false,
+				expanded: true,
+				children: [{
+					text: "对象零件",
+					value: "41",
+					leaf: true,
+					href: "8.html",
+					hrefTarget: "center"
+				}, {
+					text: "故障原因",
+					value: "41",
+					leaf: true,
+					href: "6.html",
+					hrefTarget: "center"
+				},{
+					text: "故障机理",
+					value: "41",
+					leaf: true,
+					href: "5.html",
+					hrefTarget: "center"
+				},{
+					text: "维修措施",
+					value: "41",
+					leaf: true,
+					href: "7.html",
+					hrefTarget: "center"
+				},{
+					text: "故障模式",
+					value: "41",
+					leaf: true,
+					href: "4.html",
+					hrefTarget: "center"
+				}]
+			}]
+		}

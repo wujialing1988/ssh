@@ -28,5 +28,7 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/sshframe-user.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/sshframe-bpm.jar"/>
 	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>

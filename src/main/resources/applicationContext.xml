@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop" 
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
@@ -16,14 +14,13 @@
 
     
 	<context:annotation-config></context:annotation-config>
-	<context:component-scan base-package="com.xx"></context:component-scan>
+	<context:component-scan base-package="com.dqgb.sshframe"></context:component-scan>
     <bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<value>classpath*:application.properties</value>
 		</property>
 	</bean>
-	
 	<!-- 配置数据源 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
@@ -50,10 +47,22 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan">
 			<list>
-				<value>com.xx.entity</value>
+				<value>com.dqgb.sshframe.common.entity</value>
+				<value>com.dqgb.sshframe.dict.entity</value>
+				<value>com.dqgb.sshframe.org.entity</value>
+				<value>com.dqgb.sshframe.user.entity</value>
+				<value>com.dqgb.sshframe.role.entity</value>
+				<value>com.dqgb.sshframe.log.entity</value>
+				<value>com.dqgb.sshframe.resource.entity</value>
+				<value>com.dqgb.sshframe.bpm.entity</value>
+				<value>com.dqgb.sshframe.attach.entity</value>
+				<value>com.dqgb.sshframe.examples.entity</value>
 			</list>
 		</property>
 		<property name="configLocation" value="classpath:hibernate.cfg.xml" />
+		<property name="entityInterceptor">
+		   <bean id ="EntityInterceptor" class="com.dqgb.sshframe.common.interceptor.EntityInterceptor" />
+		</property>
 	</bean>
 	 <bean id="txManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -62,4 +71,129 @@
 	
 	<!-- 配置注解方式管理事务 -->
 	<tx:annotation-driven transaction-manager="txManager"  />
+
+
+
+	
+	<!--
+	
+	<aop:config proxy-target-class="true">
+		<aop:advisor pointcut="execution(* com.dqgb.sshframe.*.service.impl.*Impl.*(..))" advice-ref="txAdvice" />
+	</aop:config>配置事务的传播特性
+	
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED"  />
+			<tx:method name="change*" propagation="REQUIRED"  />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="edit*" propagation="REQUIRED" />
+			<tx:method name="merge*" propagation="REQUIRED" />
+			<tx:method name="ajax*" propagation="REQUIRED" />
+			<tx:method name="filing*" propagation="REQUIRED" />
+			<tx:method name="end*" propagation="REQUIRED" />
+			<tx:method name="send*" propagation="REQUIRED" />
+			<tx:method name="start*" propagation="REQUIRED" />
+			<tx:method name="import*" propagation="REQUIRED" />
+			<tx:method name="compelete*" propagation="REQUIRED" />
+			<tx:method name="complete*" propagation="REQUIRED" />
+			<tx:method name="lockup*" propagation="REQUIRED" />
+			<tx:method name="commit*" propagation="REQUIRED" />
+			<tx:method name="check*" propagation="REQUIRED" />
+			<tx:method name="revoke*" propagation="REQUIRED" />
+			<tx:method name="cancel*" propagation="REQUIRED" />
+			<tx:method name="reject*" propagation="REQUIRED" />
+			<tx:method name="move*" propagation="REQUIRED" />
+			<tx:method name="quickCreate*" propagation="REQUIRED" />
+			<tx:method name="synchro*" propagation="REQUIRED" />
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="upload*" propagation="REQUIRED" />
+			<tx:method name="set*" propagation="REQUIRED" />
+			<tx:method name="is*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	-->
+	
+	<bean id="logServerHandler" class="com.dqgb.sshframe.common.interceptor.LogServiceHandler" >
+	    <property name="funNameMap">
+		    <map>
+		    	<entry key="save" value="保存"/>  
+		    	<entry key="import" value="导入"/>  
+		    	<entry key="add" value="添加"/>  
+		    	<entry key="update" value="更新"/>  
+		    	<entry key="batch" value="批处理"/>  
+		    	<entry key="edit" value="编辑"/>  
+		    	<entry key="start" value="流程"/>  
+		     </map>
+	    </property>
+    </bean>
+    <bean id="errorServiceHandler" class="com.dqgb.sshframe.common.interceptor.ErrorServiceHandler" >
+    </bean>
+    <bean id="logDaoHandler" class="com.dqgb.sshframe.common.interceptor.LogDaoHandler" >
+	    <property name="funNameMap">
+		    <map>
+		    	<entry key="save" value="保存"/>  
+		    	<entry key="add" value="添加"/>  
+		    	<entry key="batchUpdate" value="批量更新"/>  
+		    	<entry key="update" value="更新"/>
+		     </map>
+	    </property>
+   	    <property name="excludeField" value="数据主键,数据创建人,数据创建时间,数据修改人,数据修改时间"></property>
+	</bean>
+	
+	<aop:config>
+		<aop:aspect ref="logAspect" >
+		<aop:pointcut id="transactionPoint"
+			expression="execution(* com.dqgb.sshframe.*.service..*.*(..))" />
+	    <aop:after method="doSystemLog" pointcut-ref="transactionPoint"/>
+	    </aop:aspect> 
+	    
+		<aop:aspect id="serverHandler" ref="logServerHandler">
+            <aop:pointcut id="businessService"  expression="
+                (
+                    execution(* com.dqgb.sshframe..*.service..*.save*(..))
+              	 or execution(* com.dqgb.sshframe..*.service..*.delete*(..))
+                 or execution(* com.dqgb.sshframe..*.service..*.import*(..))
+                 or execution(* com.dqgb.sshframe..*.service..*.add*(..))
+                 or execution(* com.dqgb.sshframe..*.service..*.update*(..))
+                 or execution(* com.dqgb.sshframe..*.service..*.batch*(..))
+                 or execution(* com.dqgb.sshframe..*.service..*.edit*(..))
+                 or execution(* com.dqgb.sshframe..*.service..*.start*(..))
+                                                )
+                 and !execution(* com.dqgb.sshframe.log.service..*.*(..))
+                 and !execution(* com.dqgb.sshframe.bpm.service..*.*(..))
+                "/>
+                 <aop:around pointcut-ref="businessService" method="doAround"/>
+        </aop:aspect>	
+            
+      	<aop:aspect id="daoHandler" ref="logDaoHandler">
+            <aop:pointcut id="dao"  expression="
+                (
+                 execution(* com.dqgb.sshframe.common.dao.impl.BaseDaoHibernateImpl.*(..))
+                )
+                "/>
+            <aop:after pointcut-ref="dao" method="doAfter"/>
+			<aop:after-throwing pointcut-ref="dao" method="doThrowing" throwing="ex"/> 
+        </aop:aspect>	    
+      	    
+      	<aop:aspect id="errorServiceHandlerAspect" ref="errorServiceHandler">
+            <aop:pointcut id="errorServiceHandlerPointcut"  expression="
+                (
+                execution(* com.dqgb.sshframe..*.service..*.*(..))
+                )
+                and 
+                !execution(* com.dqgb.sshframe.log.service..*.*(..))
+                and 
+                !execution(* com.dqgb.sshframe.bpm.service..*.*(..))
+                "/>
+            <aop:after-throwing pointcut-ref="errorServiceHandlerPointcut" method="doThrowing" throwing="ex"/>
+        </aop:aspect>	
+	</aop:config>
+	 
+	 <!-- 流程任务处理回调实现类 -->
+	<bean id="workflowService" class="com.dqgb.sshframe.bpm.service.impl.ActivitiTaskCallBackServiceImpl"></bean>
+	<import resource="classpath:/spring_config/applicationContext_bpm.xml"/>
+
 </beans>

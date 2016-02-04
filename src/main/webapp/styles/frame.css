@@ -167,41 +167,18 @@
 	z-index: 10;
 }
 
-.top_menu ul {
-	padding: 0;
-	margin: 0
-}
-
-.top_menu ul li {
-	position: relative;
-	padding: 0 10px;
-	list-style: none;
-	float: left
-}
-
-.top_menu a {
-	color: #fff;
-	text-decoration: none;
-}
-
-.top_menu a:visited {
-	color: #FFC;
-	text-decoration: none;
-}
-
-.top_menu a:hover {
-	color: #FF0;
-	text-decoration: none;
-}
-
-.top_menu .a_click a {
-	color: #FF0;
-	font-weight: bold;
-}
-
-.top_menu .a_click span a {
-	font-weight: normal;
-}
+.top_menu ul{
+	padding:0;
+	margin:0}
+.top_menu ul li{
+	position:relative;
+	padding:0 10px;
+	list-style:none;
+	float:left}
+.top_menu a{color:#fff; text-decoration:none; }
+.top_menu a:hover{ color:#FF0; text-decoration:none;}
+.top_menu .a_click a{ color:#FF0; font-weight:bold;}
+.top_menu .a_click span a{ font-weight:normal;}
 
 .top_menu .li_2 {
 	background: #FFF url(../images/frame/top_li.jpg) repeat-x;
@@ -211,6 +188,7 @@
 .top_menu .li_2 a {
 	color: #3C86CF;
 }
+
 
 .bottom {
 	height: 25px;

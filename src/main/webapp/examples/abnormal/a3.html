@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/common/SystemConstant.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+<meta charset="UTF-8">
+<title>多层弹出窗口异常</title>
+</head>
+<body>
+<h1>多层弹出窗口异常</h1>
+<h2>异常描述：</h2>
+<P>多层弹出的情况下，出现后弹出框在前一个弹出框的后边而导致无法操作的情况,特别是火狐浏览器下</P>
+<img src='a3_1.bmp'/>
+<img src='a3_2.bmp' width='400'/>
+</pre>
+<h2>处理方法：</h2>
+<p>
+1，js引入关系（特别包含事件处理关系的），顺序需要调整；<br/>
+2，弹出事件方法遵循以下原则：先show打开弹出窗口，显示被隐藏的组件或者id，然后设置数据会单独封装组件加载数据；<br/>
+3，弹出窗口太多，交互关系太过复杂；
+</p>
+</body>
+</html>

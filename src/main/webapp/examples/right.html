@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>通用控件</title>
+<style  type="text/css">
+.tab_2{ width:900px; border:none; background:#999; margin-bottom:20px;}
+.tab_2 td{ background:#EEF5FD; padding:0 10px; line-height:24px;vertical-align:top}
+.tab_2 h3{ line-height:15px; margin:10px 0;}
+.tab_2 .subheading{font-size:12px; font-weight:normal; color:#666; margin:10px;}
+.tab_2 .title{ background:#C6E5FA; font-size:15px; font-weight:bold; padding:10px 10px;line-height:15px;}
+.color_red{ color:#F00}
+</style>
+</head>
+<body>
+<table class="tab_2" cellspacing="1">
+  <tr>
+   <td class="title" style="text-align:center"><h2 style="padding-bottom:0; margin-bottom:0; ">通用控件V1.1</h2>
+     <div class="subheading">发布时间：2016年1月25日&nbsp;&nbsp;编写人：曾超</div></td>
+  </tr>
+  <tr>
+    <td class="title"><h3>通用控件V1.1介绍</h3></td>
+  </tr>
+  <tr>
+    <td>
+    <p>经过半年时间的控件封装在项目中的应用，针对发现和反馈回来的意见和建议，对V1.0版本进行了修改和升级，新增了一些项目中常用到的控件组合，并进行封装</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="title"><h3>V1.1升级日志</h3></td>
+  </tr>
+  <tr>
+    <td>
+    <h3>表格无数据格式</h3>
+    <p>实现不需要任何配置的情况下让表格根据无数据和查询条件下无数据的情况显示图片效果</p>
+    
+    <h3>操作列按钮显示隐藏</h3>
+    <p class="color_red">更换了实现方式，定义方式和Tbar中的按钮禁用定义方式吻合</p>
+    
+    <h3>查询按钮根据查询条件隐藏相应列</h3>
+    <p>增加通过查询条件控件参数配置自动查询，不需要再对按钮事件进行编写</p>
+    
+    <h3>分页信息</h3>
+    <p>让gird和下拉翻页列表选择器中的样式有不同的展示方式</p>
+    
+    <h3>序号列</h3>
+    <p>让序号列能自适应数据的大小，在大数据的时候序号列的宽度会自动增加</p>
+    
+    <h3>表单</h3>
+    <p>定义了整体表格的样式，对边距填充，子表单项控件的样式等进行了定义。</p>
+    
+    <h3>My97日期控件</h3>
+    <p>1.简化了前端复杂的代码</p>
+    <p>2.通过配置项，能达到通过关联控件，限定时间去限制最大最小时间</p>
+    <p>3.通过配置就能达到回调函数效果</p>
+    <p>4.必填项时候，自动给出定义格式下的当前时间</p>
+    
+    <h3>模糊查询翻页下拉</h3>
+    <p>1.在原生的下拉翻页控件的基础上重写了全部的赋值方法，解决掉不在当前页的值无法赋值，有值翻页后值清空，下拉翻页条样式局限这些BUG</p>
+    <p>2.支持通过配置参数表的方式对数据回调进行新的函数使用，或者某控件赋值</p>
+    
+    <h3>模糊查询弹出列表</h3>
+    <p>1.支持通过配置参数表的方式对grid列表显示进行重构</p>
+    <p>2.支持通过配置参数表的方式对数据回调进行新的函数使用，或者某控件赋值</p>
+    <p>3.会根据fieldLabel定义弹出的标题为fieldLabel+'选择'</p>
+    <p>4.具有清空及清空配置参数表关联数据</p>
+    </td>
+  </tr>
+</table>
+
+
+<table  class="tab_2" cellspacing="1">
+  <tr>
+   <td class="title" style="text-align:center"><h2 style="padding-bottom:0; margin-bottom:0; ">通用控件V1.0</h2>
+     <div class="subheading">发布时间：2015年7月27日&nbsp;&nbsp;编写人：何道军</div></td>
+  </tr>
+  <tr>
+    <td class="title"><h3>通用控件V1.0介绍</h3></td>
+  </tr>
+  <tr>
+    <td>
+    <p>针对公司最新的UI规范，我们对前台EXTJS对行了封装和扩展，以简化前台页面的开发，提高代码复用率。控件是基于EXTJS进行扩展，所以支持所有的主流浏览器，从微软的ie6到最新版的google chrome。目前扩展控件主要包括表格控件、消息控件、表单验证控件和附件组控件。本文档提供所有控件的在线示例（包含示例源码）、使用方法和注意事项等。</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="title"><h3>V1.0升级日志</h3></td>
+  </tr>
+  <tr>
+    <td>
+    <h3>表格面板</h3>
+    <p>1.显示列边框线。</p>
+    <p>2.根据页面宽度，自适应页面显示。</p>
+    <p>3.根据表格高度，自动出现滚动条。</p>
+    
+    <h3>单元格提示</h3>
+    <p>1.禁用列标题单元格显示按钮功能。</p>
+    <p>2.将鼠标移动到单元格上时，会出现提示框，显示单元格的内容。</p>
+
+    <h3>按钮禁用</h3>
+    <p>1.选择框列默认显示在第二列。</p>
+    <p>2.根据选择的记录数据的记录条数和内容，实现禁用修改、删除等按钮功能。</p>
+
+    <h3>操作列按钮显示隐藏</h3>
+    <p>1.根据表达式中某个或者多个数据的值去判断按钮的显示或者隐藏。</p>
+
+    <h3>查询按钮根据查询条件隐藏相应列</h3>
+    <p>1.根据每条记录中某个或者多个数据的值去判断列的显示或者隐藏。</p>
+
+    <h3>禁用排序</h3>
+    <p>1.禁用点击列标题单元格排序功能。</p>
+
+    <h3>分页大小</h3>
+    <p>1.设置每页默认显示99条记录。(具体分页大小可修改)。</p>
+
+    <h3>分页信息</h3>
+    <p>1.显示分页信息"第 1 - 99 条，共 200 条"。</p>
+    
+    <h3>附件组</h3>
+    <p>1.实现显示附件列表、添加附件、删除附件、下载附件、打包批量下载功能。</p>
+    <p>2.实现验证文件大小、文件类型、最多上文件数和设置保存目录功能。保存目录支持使用日期格式。比如按当前年月来保存文件。</p>
+    </td>
+  </tr>
+ <tr>
+    <td class="title"><h3>扩展方式介绍</h3></td>
+  </tr>
+  <tr>
+    <td>
+    <h3>override</h3>
+    <p>覆盖（override）方式重写EXTJS原有组件。适用于修改EXTJS默认属性，添加额外操作等。此方式可以保持页面风格一致，减少重复代码。使用时，可直接创建EXTJS原对象，保持EXTJS原来的编码方式不变。</p>
+    <h3>extend</h3>
+    <p>继承（extend）方式扩展EXTJS现有组件，从而创建出新的控件。适用于添加新的功能组件，或对EXT原组件有较大改 动的情况。比如封装附件组控件，日期控件等。此方式可以对EXT不支持的常用功能进行封装，提高代码复用率。使用时，需创建新定义的对象。</p>
+    </td>
+  </tr>
+</table>
+<!--  <h2>控件源码：</h2>
+<p>通用控件源码：<a href="../scripts/extjs/ux/ExtjsExtend.js" target="_blank">查看</a></p>
+<p>消息控件源码：<a href="../scripts/extjs/ux/TipsWindow.js" target="_blank">查看</a></p>
+<p>表单验证源码：<a href="../scripts/extjs/ux/ExtJsExtendVTypes.js" target="_blank">查看</a></p>
+<p>附件组源码：<a href="../scripts/extjs/ux/AttachGrid.js" target="_blank">查看</a></p> -->
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/common/SystemConstant.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+ <script type="text/javascript" src="querySelectCombo.js"></script>
+<meta charset="UTF-8">
+<title>模糊查询翻页下拉</title>
+</head>
+<body>
+<h1>模糊查询翻页下拉</h1>
+<h2>扩展类：Ext.form.field.ComboBox</h2>
+<h2>扩展方式：<a href="../right.html">extend</a></h2>
+<h2>类名：Ext.form.field.ComboBox.QuerySelectCombo</h2>
+<h2>xtype：querySelectCombo</h2>
+<h2>简介：</h2>
+<P>在原生的下拉翻页控件的基础上重写了全部的赋值方法，解决掉不在当前页的值无法赋值，有值翻页后值清空，下拉翻页条样式局限这些BUG</P>
+<h2>扩展功能：</h2>
+    <p>1.支持通过配置参数表的方式对数据回调进行新的函数使用，或者某控件赋值</p>
+ <h2>用法：</h2>
+ <p>引入控件JS文件</p>
+   <pre class="code">&lt;script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"&gt;&lt;/script&gt;</pre>
+ <h3>参数表：</h3>
+    <table class="tab_1" cellspacing="1">
+      <tr>
+        <td class="title">store</td>
+        <td>必填项</td>
+        <td>关联的数据store</td>
+      </tr>
+      <tr>
+        <td class="title">queryParam</td>
+        <td>默认：keystring</td>
+        <td>模糊查询的时为后端传递的参数名称</td>
+      </tr>
+      <tr>
+        <td class="title">valueField</td>
+        <td>默认：id</td>
+        <td>相关的数据值名称绑定到控件，作为实际值</td>
+      </tr>
+      <tr>
+        <td class="title">displayField</td>
+        <td>必填</td>
+        <td>相关的数据域名称绑定到控件，作为显示值</td>
+      </tr>
+      <tr>
+        <td class="title">pathByUrl</td>
+        <td>需要给控件赋值时为必填项</td>
+        <td>根据id去查询数据的，并为控件赋初始值的一个方法路径，例如控件被放置在修改表单中；又例如控件用作查询条件，那么这个参数可以为空</td>
+      </tr>
+      <tr>
+        <td class="title">propertyMap</td>
+        <td>非必填项</td>
+        <td>用于根据配置表对id的控件赋值，或者调用一个方法并传递参数，如propertyMap : {"code":"classCode","description":"classDescription","id":alertCallback;}前两个为寻找id控件并赋值，最后一个为调用一个方法</td>
+      </tr>
+      <tr>
+        <td class="title">targetObject</td>
+        <td>非必填项</td>
+        <td>用于处理回传数据有前缀的方法，比如要取数据udata[class.description]，需要配置targetObject:'class'</td>
+      </tr>
+    </table>
+<h2>示例1：模糊查询，赋值其他控件，回调方法</h2>
+	<div id="querySelectCombo-example"></div>
+	&nbsp;&nbsp;&nbsp;<input type="button"  value="赋值" onclick="setValueFun()">为控件赋一个id='8af2c9a6520f41d201520f46fc8c0001'的值
+	<h3>示例说明：</h3>
+	<p>示例源码：<a href="querySelectCombo.js" target="_blank">查看</a></p>
+	<p>具体属性设置请参考以下代码</p>
+	<pre class="code">
+	{
+		fieldLabel : '分类',
+		id:'classSelect',
+		xtype : 'querySelectCombo',
+		store:querySelectComboStore,<span class='color_green'>//数据源</span>
+		queryParam : 'description',<span class='color_green'>//模糊查询为description</span>
+		valueField : 'id',<span class='color_green'>//实际值</span>
+		displayField : 'description',<span class='color_green'>//显示值</span>
+		pathByUrl :basePath + '/examples/getEquClassById.action',<span class='color_green'>//根据id查询返回赋值控件的方法地址</span>
+		propertyMap : {<span class='color_green'>//返回数据对应项</span>
+			"code":"classCode",<span class='color_green'>//为id='classCode'的控件赋code字段的值</span>
+			"description":"classDescription",
+			"id":alertCallback <span class='color_green'>//回调一个叫alertCallback的方法并传递id值为参数</span>
+		}
+	}
+	</pre>
+</body>
+</html>

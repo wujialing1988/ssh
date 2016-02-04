@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+ <script type="text/javascript" src="HandleGrid.js"></script>
+<meta charset="UTF-8">
+<title>表格-操作列按钮显示隐藏</title>
+</head>
+<body>
+<h1>操作列按钮显示隐藏</h1>
+<h2>扩展类：Ext.grid.column.Action</h2>
+<h2>扩展方式：<a href="../right.html">override</a></h2>
+<h2>扩展功能：</h2>
+
+    <p>1.根据表达式中某个或者多个数据的值去判断按钮的显示或者隐藏。</p>
+ 
+ <h2>示例：</h2>
+<div id="grid-example"></div>
+<p>示例源码：<a href="HandleGrid.js" target="_blank">查看</a></p>
+<!--<p>示例后台返回数据：<a href="roleListData.json" target="_blank">查看</a></p>-->
+
+  <h2>用法：</h2>
+ <p>引入控件JS文件</p>
+   <pre class="code">
+&lt;script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"&gt;&lt;/script&gt;
+ </pre>
+ <p>扩展功能1：</p>
+ <p>在操作列的按钮定义配置里添加属性 "显示表达式"
+ 	<br/> <span style="color:red;">showExpr:"$d=='同意'&&$e==3"</span>
+ 	<br/>$d$ 表示行记录中dataIndex : 'd'的列，$e 表示行记录中dataIndex : 'e'的列。
+ 	<br/>所以，表达式的含义为：根据每行中的dataIndex为d且d的值为'同意'，并且的dataIndex为e且e的值为3的时候该按钮显示。
+ </p>
+<p>参考代码如下： </p>
+ <pre class="code">
+{
+    text : '操作',
+    width : 80,
+    xtype : "actioncolumn",
+    items : [{
+            iconCls : 'download-button',
+            tooltip : "下载",
+            showExpr:'$d=="同意"&&$e==3'//为d=同意并且e=3
+        },
+        {
+            iconCls : 'add-button',
+            tooltip : "添加",
+            showExpr:'$d=="同意"||$e==3'//为d=同意或者e=3
+        },
+        {
+            iconCls : 'delete-button',
+            tooltip : "删除",
+            showExpr:'$e>1'//e大于1
+        },
+        {
+            iconCls : 'edit-button',
+            tooltip : "修改",
+            showExpr:'$e!=3'//e不等于3
+        }
+    ]
+}
+ </pre>
+ <p>原始写法对照： 判断代码冗余，且使用的是DOM嵌入html的方式</p>
+ <pre class="contrast">
+  <img src="columnAction_1.png"/>
+ </pre>
+</body>
+</html>

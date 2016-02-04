@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="../../scripts/extjs/resources/css/ext-all.css" />
+ <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+ <link href="../../styles/icons.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../scripts/extjs/ext-all.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/locale/ext-lang-zh_CN.js"></script>
+ <script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"></script>
+ <script type="text/javascript" src="RoleGrid.js"></script>
+<meta charset="UTF-8">
+<title>表格-单元格提示</title>
+</head>
+<body>
+<h1>单元格提示</h1>
+<h2>扩展类：Ext.grid.column.Column</h2>
+<h2>扩展方式：<a href="../right.html">override</a></h2>
+<h2>扩展功能：</h2>
+
+    <p>1.禁用列标题单元格显示按钮功能。</p>
+    <p>2.将鼠标移动到单元格上时，会出现提示框，显示单元格的内容。</p>
+ 
+ <h2>示例：</h2>
+<div id="grid-example"></div>
+<p>示例源码：<a href="RoleGrid.js" target="_blank">查看</a></p>
+<p>示例后台返回数据：<a href="roleListData.json" target="_blank">查看</a></p>
+
+  <h2>用法：</h2>
+ <p>引入控件JS文件</p>
+   <pre class="code">
+&lt;script type="text/javascript" src="../../scripts/extjs/ux/ExtjsExtend.js"&gt;&lt;/script&gt;
+ </pre>
+ <p>扩展功能1，不需额外编写代码。</p>
+ <p>扩展功能2：</p>
+ <p>执行EXTJS的 初始化快速提示功能。</p>
+  <pre class="code">
+Ext.onReady(function() {
+	Ext.QuickTips.init();
+});
+ </pre>
+	<p>注意：如果在定义列时，设置了renderer属性，则该列不会出现提示效果，需要手动在renderer函数里加上以下代码：</p>
+	<pre class="code">
+renderer : function(v , ctx , record){ 
+	ctx.tdAttr = 'data-qtip="' + v + '"';
+	return v; 
+}
+ </pre>
+ <p>同理，如果想取消列的消息提示，则需要设置renderer为空函数。即: <span style="color:red;">renderer:function(){}</span></p>
+</body>
+</html>
